@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Relay Run</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell" aria-label="Relay Run game">
+      <canvas id="game" aria-label="Relay Run playfield"></canvas>
+
+      <section class="hud" aria-label="Run status">
+        <div class="hud__group">
+          <div class="hud__level" id="levelName">Relay Run</div>
+          <div class="meter meter--cells" title="Collected cells">
+            <span class="cell-icon" aria-hidden="true"></span>
+            <span id="cellCount">0/0</span>
+          </div>
+        </div>
+        <div class="hud__group hud__group--right">
+          <div class="hearts" id="hearts" aria-label="Health"></div>
+          <div class="meter meter--time" title="Elapsed time" id="timer">00:00</div>
+          <button class="icon-button" id="restartBtn" type="button" aria-label="Restart level" title="Restart level">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 7h7.5a5.5 5.5 0 1 1-4.7 8.4"></path>
+              <path d="M7 7v5H2"></path>
+            </svg>
+          </button>
+          <button class="icon-button" id="pauseBtn" type="button" aria-label="Pause" title="Pause">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14"></path>
+              <path d="M16 5v14"></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen is-visible" id="screen" aria-live="polite">
+        <div class="screen__panel">
+          <p class="screen__kicker" id="screenKicker">Relay Run</p>
+          <h1 id="screenTitle">Relay Run</h1>
+          <p class="screen__copy" id="screenCopy">A three-stage platform sprint through bright factory rooftops.</p>
+          <div class="screen__actions">
+            <button class="primary-button" id="primaryAction" type="button">Start Run</button>
+            <button class="secondary-button" id="secondaryAction" type="button">Resume</button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="touch-controls" aria-label="Touch controls">
+        <div class="touch-controls__move">
+          <button class="touch-button" type="button" data-hold="left" aria-label="Move left">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"></path></svg>
+          </button>
+          <button class="touch-button" type="button" data-hold="right" aria-label="Move right">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"></path></svg>
+          </button>
+        </div>
+        <div class="touch-controls__act">
+          <button class="touch-button touch-button--small" type="button" data-press="dash" aria-label="Dash">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-8 11h6l-1 9 8-12h-6z"></path></svg>
+          </button>
+          <button class="touch-button" type="button" data-hold="jump" data-press="jump" aria-label="Jump">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
+          </button>
+        </div>
+      </nav>
+    </main>
+
+    <script src="src/game.js" defer></script>
+  </body>
+</html>
